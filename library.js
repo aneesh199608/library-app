@@ -1,4 +1,5 @@
 const myLibrary = [];
+const libraryContainer = document.querySelector(".library-container");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -7,20 +8,47 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.displayName = function () {
-    bookTitle.textContent+= this.title + ' ';
-    bookAuthor.textContent+=this.author+' ';
-    bookPages.textContent+=this.pages+' ';
-    bookStatus.textContent+=this.read+' ';
+Book.prototype.displayName = function() {
+    
+    const bookDiv = document.createElement('div');
+    bookDiv.classList.add('book-container')
+
+    const bookTitle = document.createElement('h2');
+    bookTitle.classList.add('book-title');
+    bookTitle.textContent = this.title;
+    bookDiv.appendChild(bookTitle);
+
+    const bookAuthor = document.createElement('p');
+    bookAuthor.classList.add('book-author');
+    bookAuthor.textContent = this.author;
+    bookDiv.appendChild(bookAuthor);
+
+    const bookPages = document.createElement('p');
+    bookPages.classList.add('book-pages');
+    bookPages.textContent = this.pages;
+    bookDiv.appendChild(bookPages);
+
+    const bookRead = document.createElement('p');
+    bookRead.classList.add('book-read');
+    bookRead.textContent = this.read;
+    bookDiv.appendChild(bookRead);
+
+    libraryContainer.appendChild(bookDiv);
 }
 
-const bookTitle = document.querySelector(".book-title");
-const bookAuthor = document.querySelector(".book-author");
-const bookPages = document.querySelector(".book-pages");
-const bookStatus = document.querySelector(".book-status");
+function displayLibrary() {
+    libraryContainer.innerHTML = '';
+    myLibrary.forEach (book => {
+        book.displayName();
+    });
+}
 
 const book1 = new Book('Alchemist', 'Paulo Coelho', 256, 'Read' );
-book1.displayName();
+myLibrary.push(book1);
+
 const book2 = new Book('Sapiens', 'Yuval Noah Harari', 318, 'Not Read' );
-book2.displayName();
+myLibrary.push(book2);
+
+displayLibrary();
+
 
