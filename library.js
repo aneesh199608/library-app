@@ -20,12 +20,12 @@ Book.prototype.displayName = function() {
 
     const bookAuthor = document.createElement('p');
     bookAuthor.classList.add('book-author');
-    bookAuthor.textContent = this.author;
+    bookAuthor.textContent = `Author: ${this.author}`;
     bookDiv.appendChild(bookAuthor);
 
     const bookPages = document.createElement('p');
     bookPages.classList.add('book-pages');
-    bookPages.textContent = this.pages;
+    bookPages.textContent = `${this.pages} pages`;
     bookDiv.appendChild(bookPages);
 
     const bookRead = document.createElement('p');

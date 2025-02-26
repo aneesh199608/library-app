@@ -1,0 +1,43 @@
+* {
+    font-family: "Space Grotesk", serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.library-title {
+    background-color: aquamarine;
+    padding: 0 12px;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 16px;
+    border: grey solid 2px;
+    box-shadow: -6px 6px 0 0 black;
+    align-items: start;
+    width: 200px;
+    gap: 8px
+}
+
+.book-container > p {
+    margin: 0;
+    padding: 0 4px;
+}
+
+.book-title {
+    margin: 0;
+    background-color: beige;
+    padding: 0 4px;
+}
+
+.library-container {
+    display: flex;
+    gap: 32px;
+    margin: 12px 24px;
+}
