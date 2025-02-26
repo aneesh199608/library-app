@@ -1,11 +1,11 @@
 const myLibrary = [];
 const libraryContainer = document.querySelector(".library-container");
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.status = status;
 }
 
 Book.prototype.displayName = function() {
@@ -28,10 +28,22 @@ Book.prototype.displayName = function() {
     bookPages.textContent = `${this.pages} pages`;
     bookDiv.appendChild(bookPages);
 
-    const bookRead = document.createElement('p');
-    bookRead.classList.add('book-read');
-    bookRead.textContent = this.read;
-    bookDiv.appendChild(bookRead);
+    const bookStatus = document.createElement('select');
+    bookStatus.classList.add('book-status');
+    bookStatus.classList.add(`status-${this.status.toLowerCase().replace(' ','-')}`);
+    bookStatus.innerHTML = `
+        <option value="Read">Read</option>
+        <option value="Not Started">Not Started</option>
+        <option value="Reading">Reading</option>
+        <option value="Archived">Archived</option>
+        `;
+    bookStatus.value = this.status;
+    bookStatus.addEventListener("change", () => {
+        this.status = bookStatus.value;
+        bookStatus.className = 'book-status';
+        bookStatus.classList.add(`status-${this.status.toLowerCase().replace(' ','-')}`);
+    });
+    bookDiv.appendChild(bookStatus);
 
     libraryContainer.appendChild(bookDiv);
 }
@@ -46,7 +58,7 @@ function displayLibrary() {
 const book1 = new Book('Alchemist', 'Paulo Coelho', 256, 'Read' );
 myLibrary.push(book1);
 
-const book2 = new Book('Sapiens', 'Yuval Noah Harari', 318, 'Not Read' );
+const book2 = new Book('Sapiens', 'Yuval Noah Harari', 318, 'Not Started' );
 myLibrary.push(book2);
 
 displayLibrary();

@@ -41,3 +41,15 @@ body {
     gap: 32px;
     margin: 12px 24px;
 }
+
+.book-status {
+    padding: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    align-self: stretch;
+}
+
+.book-status.status-read {background-color: hsl(161, 100%, 94%);}
+.book-status.status-not-started {background-color: hsl(0, 0%, 96%);}
+.book-status.status-reading {background-color: hsl(68, 100%, 96%);}
+.book-status.status-archived {background-color: hsl(13, 88%, 87%);}
