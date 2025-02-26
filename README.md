@@ -1,1 +1,1 @@
-# library-app
+This project was built as part of The Odin Project—because what’s a library without a little learning?
