@@ -6,12 +6,34 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 24px;
+    gap: 24px
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
 }
 
 .library-title {
     background-color: aquamarine;
     padding: 0 12px;
+    margin: 0;
 }
+
+.library-description {
+    max-width: 70%;
+    text-align: center;
+    margin: 0;
+}
+
+/* .description-document {
+    background-color:rgb(193, 201, 247);
+    padding: 0 2px;
+} */
 
 .book-container {
     display: flex;
@@ -51,6 +73,16 @@ body {
     font-size: 1rem;
 }
 
+.add-book {
+    background-color: rgb(198, 205, 255);
+    padding: 8px 16px;
+    font-family: "Space Grotesk", serif;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: -6px 6px 0 0 black;
+    border: 0;
+}
+
 .book-author {
     font-size: 0.85rem;
 }
@@ -65,6 +97,8 @@ body {
     display: flex;
     gap: 32px;
     margin: 12px 24px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .book-status {

@@ -71,6 +71,8 @@ myLibrary.push(book1);
 
 const book2 = new Book('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 318, 'Not Started' );
 myLibrary.push(book2);
+const book3 = new Book('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 318, 'Not Started' );
+myLibrary.push(book2);
 
 displayLibrary();
 
