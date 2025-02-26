@@ -1,5 +1,8 @@
 const myLibrary = [];
 const libraryContainer = document.querySelector(".library-container");
+const addButton = document.querySelector(".add-book");
+const bookForm = document.querySelector('.book-form');
+const form = document.querySelector('.book-form form');
 
 function Book(title, author, pages, status) {
     this.title = title;
@@ -37,6 +40,7 @@ Book.prototype.displayName = function() {
     const bookPages = document.createElement('p');
     bookPages.classList.add('book-pages');
     bookPages.textContent = `${this.pages} pages`;
+    bookPages.title=this.pages;
     bookDiv.appendChild(bookPages);
 
     const bookStatus = document.createElement('select');
@@ -71,8 +75,30 @@ myLibrary.push(book1);
 
 const book2 = new Book('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 318, 'Not Started' );
 myLibrary.push(book2);
-const book3 = new Book('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 318, 'Not Started' );
+const book3 = new Book('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 320, 'Not Started' );
 myLibrary.push(book2);
+
+addButton.addEventListener('click', () => {
+    bookForm.showModal();
+})
+
+form.addEventListener('submit', (e) => {
+    const formData = new FormData(e.target);
+    const newBook = new Book(
+        formData.get('title'),
+        formData.get('author'),
+        formData.get('pages'),
+        formData.get('status')
+    );
+    myLibrary.push(newBook);
+    displayLibrary();
+    form.reset();
+});
+
+document.querySelector('.cancel').addEventListener('click', () => {
+    bookForm.close();
+    form.reset();
+});
 
 displayLibrary();
 

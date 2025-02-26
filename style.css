@@ -57,7 +57,7 @@ body {
     overflow: hidden;
 }
 
-.book-title, .book-author {
+.book-title, .book-author, .book-pages {
     margin: 0;
     padding: 0 4px;
     line-height: 1.4em;
@@ -73,14 +73,21 @@ body {
     font-size: 1rem;
 }
 
-.add-book {
-    background-color: rgb(198, 205, 255);
+.button {
     padding: 8px 16px;
     font-family: "Space Grotesk", serif;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: -6px 6px 0 0 black;
+    box-shadow: -4px 4px 0 0 black;
     border: 0;
+}
+
+.add-book {
+    background-color: rgb(198, 205, 255);
+}
+
+.add-book:hover {
+    background-color: rgb(230, 233, 255);
 }
 
 .book-author {
@@ -112,3 +119,40 @@ body {
 .book-status.status-not-started {background-color: hsl(0, 0%, 96%);}
 .book-status.status-reading {background-color: hsl(68, 100%, 96%);}
 .book-status.status-archived {background-color: hsl(13, 88%, 87%);}
+
+.book-form {
+    border: 2px solid black;
+    padding: 2rem;
+    box-shadow: -8px 8px 0 0 black;
+}
+
+.book-form::backdrop {
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(1px);
+}
+
+.input-group {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 0.5rem;
+}
+
+.input-group > input, select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    width: 100%;
+}
+
+.input-group label {
+    width: 160px;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
