@@ -43,7 +43,7 @@ body {
     border: grey solid 2px;
     box-shadow: -6px 6px 0 0 black;
     align-items: start;
-    width: 120px;
+    width: 140px;
     gap: 8px
 }
 
@@ -57,7 +57,7 @@ body {
     overflow: hidden;
 }
 
-.book-title, .book-author, .book-pages {
+.book-title, .book-author{
     margin: 0;
     padding: 0 4px;
     line-height: 1.4em;
@@ -155,4 +155,30 @@ body {
     gap: 1rem;
     justify-content: flex-end;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.delete-btn svg {
+    width: 16px;
+    height: auto;
+}
+
+.delete-btn:hover {
+    transform: rotate(-5deg);
+    transform-origin: 2px 3px;
+    fill: rgb(226, 80, 80);
+}
+
+
 
