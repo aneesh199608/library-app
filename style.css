@@ -21,7 +21,7 @@ body {
     border: grey solid 2px;
     box-shadow: -6px 6px 0 0 black;
     align-items: start;
-    width: 200px;
+    width: 120px;
     gap: 8px
 }
 
@@ -30,11 +30,36 @@ body {
     padding: 0 4px;
 }
 
-.book-title {
-    margin: 0;
-    background-color: beige;
-    padding: 0 4px;
+.title-container, .author-container {
+    height: 2.8em;
+    overflow: hidden;
 }
+
+.book-title, .book-author {
+    margin: 0;
+    padding: 0 4px;
+    line-height: 1.4em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-title {
+    background-color: beige;
+    font-size: 1rem;
+}
+
+.book-author {
+    font-size: 0.85rem;
+}
+
+.book-pages {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
 
 .library-container {
     display: flex;

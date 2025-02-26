@@ -10,18 +10,29 @@ function Book(title, author, pages, status) {
 
 Book.prototype.displayName = function() {
     
+    
     const bookDiv = document.createElement('div');
-    bookDiv.classList.add('book-container')
+    bookDiv.classList.add('book-container');
+
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
+    bookDiv.appendChild(titleContainer);
 
     const bookTitle = document.createElement('h2');
     bookTitle.classList.add('book-title');
     bookTitle.textContent = this.title;
-    bookDiv.appendChild(bookTitle);
+    bookTitle.title = this.title;
+    titleContainer.appendChild(bookTitle);
+
+    const authorContainer = document.createElement('div');
+    authorContainer.classList.add('author-container');
+    bookDiv.appendChild(authorContainer);
 
     const bookAuthor = document.createElement('p');
     bookAuthor.classList.add('book-author');
     bookAuthor.textContent = `Author: ${this.author}`;
-    bookDiv.appendChild(bookAuthor);
+    bookAuthor.title=this.author;
+    authorContainer.appendChild(bookAuthor);
 
     const bookPages = document.createElement('p');
     bookPages.classList.add('book-pages');
@@ -58,7 +69,7 @@ function displayLibrary() {
 const book1 = new Book('Alchemist', 'Paulo Coelho', 256, 'Read' );
 myLibrary.push(book1);
 
-const book2 = new Book('Sapiens', 'Yuval Noah Harari', 318, 'Not Started' );
+const book2 = new Book('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 318, 'Not Started' );
 myLibrary.push(book2);
 
 displayLibrary();
