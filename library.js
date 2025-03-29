@@ -112,6 +112,13 @@ addButton.addEventListener('click', () => {
 })
 
 form.addEventListener('submit', (e) => {
+    if(!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+        return;
+    }
+    
+    
     const formData = new FormData(e.target);
     const newBook = new Book(
         formData.get('title'),
